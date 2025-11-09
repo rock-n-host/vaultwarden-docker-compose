@@ -3,7 +3,7 @@
 
 services:
   vaultwarden:
-    image: vaultwarden/server:latest
+    image: "${IMAGETAG}"
     container_name: vaultwarden
     restart: unless-stopped
 
