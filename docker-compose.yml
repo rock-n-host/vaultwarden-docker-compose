@@ -1,0 +1,26 @@
+# this file defines the vaultwarden container
+# set your IP address, user and volume in the .env file
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    environment:
+      WEBSOCKET_ENABLED: "true"
+      SIGNUPS_ALLOWED: "false"    # set to true temporarily for initial account creation
+      DOMAIN: "${DOMAIN}"
+      LOG_LEVEL: "info"
+      UID: "${UID}"
+      GID: "${GID}"
+
+    ports:
+      - "${IP_BIND}:${PORT}:80"
+
+    volumes:
+      # SELinux-friendly volume mount
+      - ${VOLUME_PATH}:/data:Z
