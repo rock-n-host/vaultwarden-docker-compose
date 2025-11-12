@@ -33,6 +33,14 @@ If everything is correct run your container with ```docker compose up -d ``` and
 
 ---
 
+## ❌ No Docker? No problem
+Just follow the [official installation guide](https://docs.docker.com/engine/install/) for your Distro and add your user to the docker group.
+
+	sudo groupadd docker
+	usermod -aG docker $USER
+
+---
+
 ## ⚠️ Common issues
 You can run into issues with permissions on Fedora-based systems or setups with SELinux even if you are in the docker group. To fix this try:
 
